@@ -1,0 +1,10 @@
+version: '2'
+services:
+  centos7:
+    build: .
+    command: /sbin/init
+    volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+    - /run
+    - /tmp
