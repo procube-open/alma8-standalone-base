@@ -1,4 +1,4 @@
-# centos-standalone-base
+# alma8-standalone-base
 
 スタンドアローン型のコンテナのベースとなるイメージである。以下に Dockerfile 内の設定について説明する。
 
@@ -10,7 +10,7 @@ OSを更新する。マイナー番号も最新となるので、注意が必要
 
 ## ４行目
 ```
-yum -y install unzip wget lsof telnet bind-utils tar tcpdump vim strace less python
+yum -y install unzip wget lsof telnet bind-utils tar tcpdump vim strace less python3
 ```
 ビルドやデバッグに必要となる標準的なツールをインストールする。
 
@@ -54,7 +54,7 @@ docker run のときに -v でホストの同じパスをマウントするボ�
 version: "3.4"
 services:
   test:
-    image: "procube/centos-standalone-base:latest"
+    image: "procube/alma8-standalone-base:latest"
     hostname: "test"
     volumes:
     - /sys/fs/cgroup:/sys/fs/cgroup:ro
