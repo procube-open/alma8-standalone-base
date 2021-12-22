@@ -1,6 +1,6 @@
 version: '2'
 services:
-  centos7:
+  almalinux8:
     build: .
     command: /sbin/init
     volumes:
