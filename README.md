@@ -48,21 +48,6 @@ mount[19]: mount: permission denied
 systemd[1]: sys-fs-fuse-connections.mount mount process exited, code=exited status=32
 ```
 
-## 11行目
-docker run のときに -v でホストの同じパスをマウントするボリュームを明示している。docker swarm mode では、 --privledged は使えないため、内部で systemctl を利用するためにはこの /sys/fs/cgroup, /run, および /tmp をマウントすることが必須となる。docker-compose.yml のサンプルを示す。
-```
-version: "3.4"
-services:
-  test:
-    image: "procube/alma8-standalone-base:latest"
-    hostname: "test"
-    volumes:
-    - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    tmpfs:
-    - /run
-    - /tmp
-```
-
 ## その他
 
 journalctl では、以下のエラーが出力されているが、docker swarm service として起動する場合は、 --privledged が利用できず、これを止める手段が見つかっていない。

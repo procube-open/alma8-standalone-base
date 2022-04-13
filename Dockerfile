@@ -8,5 +8,4 @@ RUN echo "export TERM=xterm" >> .bash_profile
 ENV container docker
 STOPSIGNAL SIGRTMIN+3
 RUN rm -f /lib/systemd/system/sysinit.target.wants/sys-fs-fuse-connections.mount
-VOLUME [ "/sys/fs/cgroup" ]
 CMD [ "/sbin/init" ]
